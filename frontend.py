@@ -25,16 +25,18 @@ colors = {
     'title_text_color': '#323232',
 }
 
+loc = 'data/'
+
 #load model and insta data
-insta_df = pd.read_csv('model_output_insta.csv')
+insta_df = pd.read_csv(loc + 'model_output_insta.csv')
 
 #load model with no insta data
-ts_no_insta_df = pd.read_csv('model_output_noinsta.csv')
+ts_no_insta_df = pd.read_csv(loc + 'model_output_noinsta.csv')
 ts_no_insta_df = ts_no_insta_df.set_index('Order Date')[insta_df['Order Date'].min():].reset_index()
 ts_no_insta_df['Retail Price'] = 220
 
 #load insta data for NLP and text
-insta_posts_df = pd.read_csv('instagram_post.csv')
+insta_posts_df = pd.read_csv(loc + 'instagram_post.csv')
 insta_posts_df = insta_posts_df[['time','bigrams_final', 'caption adjectives']]
 insta_posts_df = insta_posts_df.rename(columns = {'time' : 'Order Date'})
 insta_posts_df['Order Date'] = pd.to_datetime(insta_posts_df['Order Date'])
@@ -43,13 +45,13 @@ insta_posts_df['bigrams_final'] = insta_posts_df['bigrams_final'].apply(literal_
 insta_posts_df['caption adjectives'] = insta_posts_df['caption adjectives'].apply(literal_eval)
 
 #load sneaker stockx data
-stockx_df = pd.read_excel('StockX-Data-Contest-2019.xlsx', sheet_name = 'Raw Data')
+stockx_df = pd.read_excel(loc + 'StockX-Data-Contest-2019.xlsx', sheet_name = 'Raw Data')
 stockx_sneaker_df = stockx_df[stockx_df['Sneaker Name'] == 'Adidas-Yeezy-Boost-350-V2-Zebra'].reset_index()
 stockx_sneaker_df = stockx_sneaker_df[['Order Date', 'Shoe Size', 'Sale Price', 'Retail Price']]
 stockx_sneaker_df = stockx_sneaker_df.sort_values('Order Date')
 
 #load sneaker data
-with open('yeezyzebraprice.json', encoding="utf8") as json_file:
+with open(loc + 'yeezyzebraprice.json', encoding="utf8") as json_file:
     shoe_dict = json.load(json_file)
 new_shoe_data = pd.io.json.json_normalize(shoe_dict, record_path="ProductActivity")[["chainId",
                                                                                        "amount",
