@@ -8,14 +8,14 @@ from datetime import datetime
 from ast import literal_eval
 import operator
 
-colors = {
-    'plot_background': '#ffffff',
-    'plot_text': '#000000',
-    'bar_fill_color':'#00CC96',
-    'button_text': '#00CC96',
-    'button_border': '#000000',
-    'title_text_color': '#323232',
-}
+# colors = {
+#     'plot_background': '#ffffff',
+#     'plot_text': '#000000',
+#     'bar_fill_color':'#00CC96',
+#     'button_text': '#00CC96',
+#     'button_border': '#000000',
+#     'title_text_color': '#323232',
+# }
 
 #generate main sneaker graph helper function
 def main_sneaker_fig_generator(dataframe):
