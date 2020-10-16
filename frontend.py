@@ -765,4 +765,4 @@ def update_main_model_insta_graph(value, start_date, end_date):
     return new_graph
 
 if __name__ == '__main__':
-    app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False, port = 8050)
+    app.run_server(debug=False, dev_tools_ui=False, dev_tools_props_check=False)
