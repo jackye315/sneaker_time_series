@@ -77,6 +77,8 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 app.config['suppress_callback_exceptions'] = True
 
+server = app.server
+
 app.layout = html.Div(children=[
     html.Div(
         [

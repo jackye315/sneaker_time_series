@@ -10,6 +10,7 @@ click==7.1.2
 colorama==0.4.3
 contextlib2==0.6.0.post1
 dash==1.16.0
+dash-bootstrap-components==0.10.7
 dash-core-components==1.12.0
 dash-html-components==1.1.1
 dash-renderer==1.8.0
@@ -67,3 +68,4 @@ virtualenv==20.0.30
 virtualenv-clone==0.5.4
 wcwidth==0.1.9
 Werkzeug==1.0.1
+xlrd==1.2.0
