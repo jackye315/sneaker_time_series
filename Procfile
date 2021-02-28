@@ -1,1 +1,1 @@
-web: gunicorn frontend:server
+web: gunicorn frontend:server --timeout 30
